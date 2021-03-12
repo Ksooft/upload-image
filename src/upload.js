@@ -98,6 +98,11 @@ export function upload(selector, options) {
                             }
                             current++
                             if (preview.querySelectorAll('.preview-image').length === event.target.files.length) {
+                                preview.querySelectorAll('.preview-image img').forEach(i => {
+                                    setTimeout(() => {
+                                        i.previousSibling.parentElement.style.maxHeight = i.clientHeight + 'px'
+                                    }, 300);
+                                })
                                 open.disabled = false
                                 upload.disabled = false
                                 upload.style.backgroundColor = '#42b983'
@@ -107,12 +112,6 @@ export function upload(selector, options) {
                         }, 1);
                     }
                 }
-
-                preview.querySelectorAll('.preview-image img').forEach(i => {
-                    setTimeout(() => {
-                        i.previousSibling.parentElement.style.maxHeight = i.clientHeight + 'px'
-                    }, 300);
-                })
             }
             reader.readAsDataURL(file)
 
