@@ -3,7 +3,7 @@ import 'firebase/storage'
 import { upload } from './upload'
 
 const firebaseConfig = {
-    // Your config
+    // Your config firebase
 }
 firebase.initializeApp(firebaseConfig)
 
