@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    padding-top: 5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.card {
+    position: relative;
+    border-radius: 6px;
+    background-color: #fff;
+    padding: 1rem;
+    box-shadow: 2px 3px 10px rgba(0, 0, 0, .2);
+}
+
+.btn {
+    color: #42b983;
+    position: relative;
+    border-radius: 99px;
+    border: 1px solid #42b983; 
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 0.5rem 1.5rem;
+    font-weight: 700;
+    outline: none;
+    background-color: #fff;
+    transition: all .2s;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
+.btn.primary {
+    background-color: #42b983;
+    color: #fff;
+}
+
+.btn:active {
+    box-shadow: inset 1px 1px 1px rgba(0, 0, 0, .3);
+}
+
+.btn:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.clickBtn {
+    position: absolute;
+    bottom: 140px;
+    left: 160px;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    padding: 0;
+    background-color: #fff !important;
+    border-width: 3px !important;
+    border-color: #bbbbbb !important;
+    border-left-color: #42b983 !important;
+    font-size: 0;
+    animation: rotating 2s 0.25s linear infinite;
+}
+
+.validateBtn {
+    width: 110px;
+    font-size: 13px;
+    background-color: #42b983;
+}
+
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#file {
+    display: none;
+}
+
+.preview {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0.5rem;
+}
+
+.preview-image {
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.preview-image.removing {
+    transform: scale(0);
+    transition: transform .25s;
+}
+
+.preview-image:hover .preview-remove {
+    opacity: 1;
+}
+
+.preview-image:hover .preview-info {
+    bottom: 0;
+}
+
+.preview-image img {
+    display: block;
+    width: 180px;
+    min-height: 101px;
+    max-height: 280px;
+}
+
+.preview-remove {
+    cursor: pointer;
+    opacity: 0;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(255, 255, 255, .5);
+    right: 0;
+    top: 0;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity .22s;
+}
+
+.preview-info {
+    padding: 0 5px;
+    position: absolute;
+    height: 25px;
+    background-color: rgb(192, 192, 192);
+    right: 0;
+    left: 0;
+    bottom: -30px;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: bottom .22s;
+}
+
+.preview-info-progress {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #42b983;
+    text-align: center;
+    transition: width .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.link-download {
+    color: #000;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color .13s;
+}
+
+.link-download:hover {
+    color: rgba(0, 0, 0, .5);
+}
+
+.tooltip:before {
+    content: 'Ссылка скопирована';
+    position: absolute;
+    opacity: 0;
+    background-color: #333; 
+    color: #fff;
+    font-size: 9px;
+    padding: 5px 15px;
+    border-radius: 5px;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 6px;
+    z-index: 10;
+    animation: moveIn 1s forwards;
+}
+
+.btn:disabled {
+    cursor: not-allowed;
+    opacity: .8;
+}
+
+.link-github {
+    position: absolute;
+    top: 17px;
+    right: 17px;
+    color: #211F1F;
+    font-size: 25px;
+    transition: .123s color linear;
+}
+
+.link-github:hover {
+    color: rgba(33, 31, 31, .7);
+}
+
+@keyframes moveIn {
+  0%   { opacity: 0; top: 100%; }
+  100% { opacity: 1; top: 100%; }
+}
+
+@media (max-width: 576px) {
+    .container {padding-bottom: 5rem;}
+    .card {padding: .5rem;}
+    .preview {display: block; }
+    .preview-image img {margin: 0 auto;}
+    .preview-remove {right: 169px;}
+    .preview-info {width: 170px; margin: 0 auto;}
+}
